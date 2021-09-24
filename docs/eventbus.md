@@ -155,13 +155,18 @@ affinity:
 
 #### More About Native NATS EventBus
 
-- Messages limit is 1,000,000.
+- Messages limit per channel defaults to 1,000,000. It could be customized by
+  setting `spec.nats.native.maxMsgs`, `0` means unlimited.
+
+- Message bytes per channel defaults to `1GB`, setting
+  `spec.nats.native.maxBytes` to customize it, `"0"` means unlimited.
 
 - Max age of messages is 72 hours, which means messages over 72 hours will be
   deleted automatically. It can be cutomized by setting
   `spec.nats.native.maxAge`, i.e. `240h`.
 
-- Max subscription number is 1000.
+- Max subscription number is defaults to `1000`, it could be customized by
+  setting `spec.nats.native.maxSubs`.
 
 ### Exotic
 

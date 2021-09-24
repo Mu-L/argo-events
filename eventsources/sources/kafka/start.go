@@ -275,14 +275,14 @@ func getSaramaConfig(kafkaEventSource *v1alpha1.KafkaEventSource, log *zap.Sugar
 
 		config.Net.SASL.Mechanism = sarama.SASLMechanism(kafkaEventSource.SASL.GetMechanism())
 
-		user, err := common.GetSecretFromVolume(kafkaEventSource.SASL.User)
+		user, err := common.GetSecretFromVolume(kafkaEventSource.SASL.UserSecret)
 		if err != nil {
 			log.Errorf("Error getting user value from secret: %v", err)
 			return nil, err
 		}
 		config.Net.SASL.User = user
 
-		password, err := common.GetSecretFromVolume(kafkaEventSource.SASL.Password)
+		password, err := common.GetSecretFromVolume(kafkaEventSource.SASL.PasswordSecret)
 		if err != nil {
 			log.Errorf("Error getting password value from secret: %v", err)
 			return nil, err
@@ -343,7 +343,7 @@ func (consumer *Consumer) ConsumeClaim(session sarama.ConsumerGroupSession, clai
 			continue
 		}
 		if consumer.kafkaEventSource.LimitEventsPerSecond > 0 {
-			//1000000000 is 1 second in nanoseconds
+			// 1000000000 is 1 second in nanoseconds
 			d := (1000000000 / time.Duration(consumer.kafkaEventSource.LimitEventsPerSecond) * time.Nanosecond) * time.Nanosecond
 			consumer.logger.Infof("Sleeping for: %v.", d)
 			time.Sleep(d)

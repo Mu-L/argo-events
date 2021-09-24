@@ -76,11 +76,6 @@ var (
 					Template: &v1alpha1.TriggerTemplate{
 						Name: "fake-trigger",
 						K8s: &v1alpha1.StandardK8STrigger{
-							GroupVersionResource: metav1.GroupVersionResource{
-								Group:    "k8s.io",
-								Version:  "",
-								Resource: "pods",
-							},
 							Operation: "create",
 							Source:    &v1alpha1.ArtifactLocation{},
 						},
@@ -143,13 +138,17 @@ func Test_BuildDeployment(t *testing.T) {
 		volumes := deployment.Spec.Template.Spec.Volumes
 		assert.True(t, len(volumes) > 0)
 		hasAuthVolume := false
+		hasTmpVolume := false
 		for _, vol := range volumes {
 			if vol.Name == "auth-volume" {
 				hasAuthVolume = true
-				break
+			}
+			if vol.Name == "tmp" {
+				hasTmpVolume = true
 			}
 		}
 		assert.True(t, hasAuthVolume)
+		assert.True(t, hasTmpVolume)
 		assert.True(t, len(deployment.Spec.Template.Spec.ImagePullSecrets) > 0)
 		assert.Equal(t, deployment.Spec.Template.Spec.PriorityClassName, "test-class")
 	})

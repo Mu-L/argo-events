@@ -88,3 +88,31 @@ func TestValidDepencies(t *testing.T) {
 		assert.Equal(t, true, strings.Contains(err.Error(), "must define a name"))
 	})
 }
+
+func TestValidTriggers(t *testing.T) {
+	t.Run("duplicate trigger names", func(t *testing.T) {
+		triggers := []v1alpha1.Trigger{
+			{
+				Template: &v1alpha1.TriggerTemplate{
+					Name: "fake-trigger",
+					K8s: &v1alpha1.StandardK8STrigger{
+						Operation: "create",
+						Source:    &v1alpha1.ArtifactLocation{},
+					},
+				},
+			},
+			{
+				Template: &v1alpha1.TriggerTemplate{
+					Name: "fake-trigger",
+					K8s: &v1alpha1.StandardK8STrigger{
+						Operation: "create",
+						Source:    &v1alpha1.ArtifactLocation{},
+					},
+				},
+			},
+		}
+		err := validateTriggers(triggers)
+		assert.NotNil(t, err)
+		assert.Equal(t, true, strings.Contains(err.Error(), "duplicate trigger name:"))
+	})
+}

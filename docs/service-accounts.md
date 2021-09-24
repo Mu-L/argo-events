@@ -10,11 +10,11 @@ resource being watched.
 
 For example, if you want to watch actions on `Deployment` objects, you need to:
 
-1.  Create a Service Account
+1.  Create a Service Account.
 
         kubectl -n your-namespace create sa my-sa
 
-2.  Grant RBAC privileges to it
+2.  Grant RBAC privileges to it.
 
         kubectl -n your-namespace create role deployments-watcher --verb=list,watch --resource=deployments.apps
 
@@ -61,7 +61,7 @@ Sensor.
 When the Sensor is used to trigger a Workflow, you might need to configure the
 Service Account used in the Workflow spec (**NOT**
 `spec.template.serviceAccountName`) following Argo Workflow
-[instructions](https://github.com/argoproj/argo/blob/master/docs/service-accounts.md).
+[instructions](https://github.com/argoproj/argo-workflows/blob/master/docs/service-accounts.md).
 
 If it is used to trigger other K8s resources (i.e. a Deployment), make sure to
 follow least privilege principle.
