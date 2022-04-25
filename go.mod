@@ -58,7 +58,7 @@ require (
 	github.com/prometheus/client_golang v1.12.1
 	github.com/radovskyb/watcher v1.0.7
 	github.com/robfig/cron/v3 v3.0.1
-	github.com/slack-go/slack v0.10.2
+	github.com/slack-go/slack v0.10.3
 	github.com/smartystreets/goconvey v1.7.2
 	github.com/spf13/cobra v1.4.0
 	github.com/spf13/viper v1.11.0
@@ -67,7 +67,7 @@ require (
 	github.com/stripe/stripe-go v70.15.0+incompatible
 	github.com/tidwall/gjson v1.14.1
 	github.com/tidwall/sjson v1.2.4
-	github.com/xanzy/go-gitlab v0.63.0
+	github.com/xanzy/go-gitlab v0.64.0
 	github.com/yuin/gopher-lua v0.0.0-20210529063254-f4c35e4016d9
 	go.uber.org/ratelimit v0.2.0
 	go.uber.org/zap v1.21.0
