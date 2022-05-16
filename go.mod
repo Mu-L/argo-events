@@ -46,7 +46,7 @@ require (
 	github.com/imdario/mergo v0.3.12
 	github.com/itchyny/gojq v0.12.7
 	github.com/joncalhoun/qson v0.0.0-20200422171543-84433dcd3da0
-	github.com/ktrysmt/go-bitbucket v0.9.44
+	github.com/ktrysmt/go-bitbucket v0.9.45
 	github.com/minio/minio-go/v7 v7.0.26
 	github.com/mitchellh/hashstructure/v2 v2.0.2
 	github.com/mitchellh/mapstructure v1.5.0
@@ -55,7 +55,7 @@ require (
 	github.com/nats-io/stan.go v0.10.2
 	github.com/nsqio/go-nsq v1.1.0
 	github.com/pkg/errors v0.9.1
-	github.com/prometheus/client_golang v1.12.1
+	github.com/prometheus/client_golang v1.12.2
 	github.com/radovskyb/watcher v1.0.7
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/slack-go/slack v0.10.3
