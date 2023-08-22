@@ -59,7 +59,7 @@ require (
 	github.com/radovskyb/watcher v1.0.7
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/slack-go/slack v0.12.2
-	github.com/smartystreets/goconvey v1.8.0
+	github.com/smartystreets/goconvey v1.8.1
 	github.com/spf13/cobra v1.7.0
 	github.com/spf13/viper v1.16.0
 	github.com/streadway/amqp v1.1.0
@@ -125,6 +125,7 @@ require (
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
 	github.com/sanity-io/litter v1.5.5 // indirect
 	github.com/skeema/knownhosts v1.2.0 // indirect
+	github.com/smarty/assertions v1.15.0 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	google.golang.org/genproto/googleapis/api v0.0.0-20230706204954-ccb25ca9f130 // indirect
@@ -248,7 +249,6 @@ require (
 	github.com/sergi/go-diff v1.1.0 // indirect
 	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
-	github.com/smartystreets/assertions v1.13.1 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/spf13/afero v1.9.5 // indirect
 	github.com/spf13/cast v1.5.1 // indirect
